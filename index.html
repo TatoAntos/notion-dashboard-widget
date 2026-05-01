@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Widget</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #191919;
+    --surface: #262626;
+    --surface-hover: #2e2e2e;
+    --border: rgba(255,255,255,0.08);
+    --text: #e3e3e3;
+    --text-muted: #9b9b9b;
+    --text-faint: #606060;
+    --accent-red: #ff6b6b;
+    --accent-blue: #6b9fff;
+    --accent-orange: #ffb347;
+    --accent-green: #6bcb77;
+    --radius: 10px;
+    --gap: 10px;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+    padding: 4px;
+    width: 100%;
+  }
+
+  .box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .box-header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 2px;
+  }
+
+  .box-icon {
+    font-size: 14px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .box-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 2px 0;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    color: var(--text);
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--text-faint);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* Accent dot colours per box */
+  .box-1 li::before { background: var(--accent-red); }
+  .box-2 li::before { background: var(--accent-blue); }
+  .box-3 li::before { background: var(--accent-orange); }
+  .box-4 li::before { background: var(--accent-green); }
+
+  .note {
+    font-size: 11.5px;
+    color: var(--text-faint);
+    font-style: italic;
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="grid">
+
+  <!-- Box 1: Weekly Review -->
+  <div class="box box-1">
+    <div class="box-header">
+      <span class="box-icon">⏰</span>
+      <span class="box-title">Weekly Review</span>
+    </div>
+    <div class="divider"></div>
+    <ul>
+      <li>Open Inbox</li>
+      <li>Sort every new note</li>
+      <li>Reference = keep</li>
+      <li>Archive = done</li>
+      <li>Empty Inbox</li>
+    </ul>
+  </div>
+
+  <!-- Box 2: Capture Checklist -->
+  <div class="box box-2">
+    <div class="box-header">
+      <span class="box-icon">📋</span>
+      <span class="box-title">Capture Checklist</span>
+    </div>
+    <div class="divider"></div>
+    <ul>
+      <li>Sensible topic, even out of context</li>
+      <li>Fill in Area + Work Section + Status</li>
+      <li>AI to write context</li>
+      <li>Add a Next Action if needed</li>
+    </ul>
+  </div>
+
+  <!-- Box 3: Monthly Reminders -->
+  <div class="box box-3">
+    <div class="box-header">
+      <span class="box-icon">🗓️</span>
+      <span class="box-title">Monthly Reminders</span>
+    </div>
+    <div class="divider"></div>
+    <ul>
+      <li>Submit Maximizing invoice by 5th</li>
+      <li>Run Monthly Hours script</li>
+      <li>Check attendance data entered</li>
+      <li>Verify automated BE sheets</li>
+    </ul>
+  </div>
+
+  <!-- Box 4: Current Focus -->
+  <div class="box box-4">
+    <div class="box-header">
+      <span class="box-icon">🔥</span>
+      <span class="box-title">Current Focus</span>
+    </div>
+    <div class="divider"></div>
+    <ul>
+      <li>Update this weekly</li>
+      <li>1–3 active priorities only</li>
+      <li>Clear old ones during review</li>
+    </ul>
+    <p class="note">Edit this file to update your focus items</p>
+  </div>
+
+</div>
+</body>
+</html>
